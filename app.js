@@ -1,9 +1,26 @@
-const http = require('http');
+const express = require('express');
 
-const Route = require('./Route');
+const bodyParser = require('body-parser');
 
-console.log(Route.someText);
+const path =  require('path');
+ 
+const app = express();
 
-const server = http.createServer(Route.handler);
+const adminroutes = require('./routes/admin');
+const shoproutes = require('./routes/shop');
 
-server.listen(2000);
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+app.use('/admin',adminroutes);
+app.use(shoproutes);
+
+
+app.use((req, res, next) => {
+    res.status(404).sendFile(path.join(__dirname, 'views', '404page.html'));
+});
+
+           
+
+app.listen(2000);
