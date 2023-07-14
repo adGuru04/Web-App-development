@@ -13,11 +13,7 @@ body {
 main {
   padding: 1rem;
   margin: auto;
-<<<<<<< Updated upstream
   border: 1px solid red;
-=======
-  border: 1px solid #000000;
->>>>>>> Stashed changes
   display: flex;
   justify-content: center;
   flex-direction: column;
