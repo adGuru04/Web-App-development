@@ -2,29 +2,23 @@ const path = require('path');
 
 const express = require('express');
 
-const rootDir = require('../util/path');
+//const rootDir = require('../util/path');
+
+const productsController = require('../controllers/products');
 
 const router = express.Router();
 
-const products = [];
+// const products = []; // shifted to controller- [products.js]
 
 
-// /admin/add-product => GET
-router.get('/add-product', (req, res, next) => {
-   res.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-product', formsCSS: true, productCSS: true, activeAddProduct: true });
-});
+// /admin/add-product => GET (the page where you see the added book)
+router.get('/add-product', productsController.getAddProduct);
 
 
-// /admin/add-product => POST
-router.post("/add-product", (req, res, next) => {
-   
-   products.push({ title: req.body.title });
-   console.log(products);
-   res.redirect('/');
-});
+// /admin/add-product => POST (showing the data you put in the text box like - book 1)
+router.post("/add-product", productsController.postAddProducts);
 
-exports.routes = router;
-exports.products = products; 
+module.exports = router;
 
 
  // app.get or app.post or router.get/post are same as app.use but filter get and post req resp. 
