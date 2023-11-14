@@ -2,14 +2,13 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-//const expressHbs = require('express-handlebars');
 
 const errorController = require('./controllers/error');
 
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -22,4 +21,4 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(2000);       
+app.listen(2000);
