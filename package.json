@@ -10,7 +10,7 @@
   "author": "Guru",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^3.1.4"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -20,6 +20,7 @@
     "express-hbs": "^2.4.0",
     "mysql2": "^3.9.6",
     "pug": "^3.0.2",
+    "sequelize": "^6.37.3",
     "v18": "^1.0.2"
   },
   "keywords": [
