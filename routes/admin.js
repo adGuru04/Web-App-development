@@ -24,4 +24,7 @@ router.post("/edit-product",adminController.postEditProduct);
 
 router.post("/delete-product", adminController.postDeleteProduct);
 
+router.get('/deleted-products', adminController.getDeletedProducts);  // ✅ Show Deleted Products
+router.post('/restore-product', adminController.postRestoreProduct);  // ✅ Restore Product
+
 module.exports = router;
