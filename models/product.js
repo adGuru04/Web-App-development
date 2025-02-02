@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
+const { defaultValueSchemable, toDefaultValue } = require('sequelize/lib/utils');
 
 const Product = sequelize.define('product', {
     id : {
@@ -21,6 +22,11 @@ const Product = sequelize.define('product', {
     description: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    isDeleted : { // ✅ New column to track deleted products
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
 });
 
