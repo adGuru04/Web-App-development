@@ -1,34 +1,37 @@
-<%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/forms.css">
-    <link rel="stylesheet" href="/css/product.css">
+<%- include('../includes/head.ejs') %>  <!-- 🏗️ Include common head section -->
+<link rel="stylesheet" href="/css/forms.css">  <!-- 🎨 Apply form styles -->
+<link rel="stylesheet" href="/css/product.css">  <!-- 🎨 Apply product styles -->
 </head>
 
 <body>
-   <%- include('../includes/navigation.ejs') %>
+   <%- include('../includes/navigation.ejs') %>  <!-- 🏗️ Include navigation bar -->
 
     <main>
+        <!-- 📝 Product Form (Handles both Add & Edit) -->
         <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
             <div class="form-control">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" value="<% if (editing) { %><%=product.title%><% } %>">
+                <label for="title">Title</label>  <!-- 🏷️ Product title label -->
+                <input type="text" name="title" id="title" value="<% if (editing) { %><%=product.title%><% } %>">  <!-- ✏️ Input for product title -->
             </div>
             <div class="form-control">
-                <label for="imageUrl">Image URL</label>
-                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%=product.imageUrl%><% } %>">
+                <label for="imageUrl">Image URL</label>  <!-- 🖼️ Product image URL label -->
+                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%=product.imageUrl%><% } %>">  <!-- 📷 Input for image URL -->
             </div>
             <div class="form-control">
-                <label for="price">Price</label>
-                <input type="number" name="price" id="price" step="0.01" value="<% if (editing) { %><%=product.price%><% } %>">
+                <label for="price">Price</label>  <!-- 💰 Product price label -->
+                <input type="number" name="price" id="price" step="0.01" value="<% if (editing) { %><%=product.price%><% } %>">  <!-- 💲 Input for price -->
             </div>
             <div class="form-control">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" rows="5" ><% if (editing) { %><%=product.description%><% } %></textarea>
+                <label for="description">Description</label>  <!-- 📝 Product description label -->
+                <textarea name="description" id="description" rows="5"><% if (editing) { %><%=product.description%><% } %></textarea>  <!-- 🖊️ Text area for description -->
             </div>
+
             <% if (editing) { %> 
-            <input type="hidden" value="<%= product.id %>" name="productId"> 
+            <input type="hidden" value="<%= product.id %>" name="productId">  <!-- 🆔 Hidden field for editing -->
             <% } %>
 
-            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>  <!-- 🔄 Submit button (Add/Edit) -->
         </form>
     </main>
-<%- include('../includes/end.ejs') %>
+
+<%- include('../includes/end.ejs') %>  <!-- 🏗️ Include common footer -->

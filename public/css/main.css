@@ -1,139 +1,161 @@
+/* 🌐 Import Google Font */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
+/* 🖼️ Apply box-sizing to all elements */
 * {
   box-sizing: border-box;
 }
 
+/* 🎨 General body styling */
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif; /* 📝 Set global font */
 }
 
+/* 📏 Main content styling */
 main {
-  padding: 1rem;
-  margin: auto;
+  padding: 1rem; /* 🛏️ Add padding */
+  margin: auto; /* 🎯 Center content */
 }
 
+/* 📝 Form styling */
 form {
-  display: inline;
+  display: inline; /* 📌 Display form inline */
 }
 
+/* 🏠 Header styling */
 .main-header {
-  width: 100%;
-  height: 3.5rem;
-  background-color: #01380f;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
+  width: 100%; /* 📏 Full width */
+  height: 3.5rem; /* 📐 Fixed height */
+  background-color: #01380f; /* 🎨 Dark green background */
+  padding: 0 1.5rem; /* 🛏️ Add padding */
+  display: flex; /* 🏗️ Use flexbox */
+  align-items: center; /* 🎯 Align items vertically */
 }
 
+/* 🚪 Navigation inside header */
 .main-header__nav {
   height: 100%;
-  display: none;
-  align-items: center;
+  display: none; /* 📌 Hide by default (shown in media query) */
+  align-items: center; /* 🎯 Align items */
 }
 
+/* 📜 List styling inside navigation */
 .main-header__item-list {
-  list-style: none;
+  list-style: none; /* 🚫 Remove bullets */
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flex; /* 🏗️ Use flexbox */
 }
 
+/* 📌 Navigation item styling */
 .main-header__item {
-  margin: 0 1rem;
+  margin: 0 1rem; /* 📏 Add spacing between items */
   padding: 0;
 }
 
+/* 🔗 Style navigation links */
 .main-header__item a {
-  text-decoration: none;
-  color: white;
+  text-decoration: none; /* 🚫 Remove underline */
+  color: white; /* 🎨 White text */
 }
 
+/* ✨ Change link color on hover */
 .main-header__item a:hover,
 .main-header__item a:active,
 .main-header__item a.active {
-  color: #ffeb3b;
+  color: #ffeb3b; /* 🎨 Yellow highlight */
 }
 
+/* 📱 Mobile navigation menu */
 .mobile-nav {
-  width: 30rem;
-  height: 100vh;
-  max-width: 90%;
-  position: fixed;
+  width: 30rem; /* 📏 Set width */
+  height: 100vh; /* 📐 Full screen height */
+  max-width: 90%; /* 📏 Restrict max width */
+  position: fixed; /* 📌 Fixed to screen */
   left: 0;
   top: 0;
-  background: white;
-  z-index: 10;
-  padding: 2rem 1rem 1rem 2rem;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-out;
+  background: white; /* 🎨 White background */
+  z-index: 10; /* 📏 Ensure it's above other elements */
+  padding: 2rem 1rem 1rem 2rem; /* 🛏️ Add padding */
+  transform: translateX(-100%); /* 🚪 Hide by default */
+  transition: transform 0.3s ease-out; /* 🎬 Smooth slide effect */
 }
 
+/* 📱 Open mobile navigation */
 .mobile-nav.open {
-  transform: translateX(0);
+  transform: translateX(0); /* 🚀 Slide into view */
 }
 
+/* 📜 Mobile menu items */
 .mobile-nav__item-list {
-  list-style: none;
+  list-style: none; /* 🚫 Remove bullets */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* 📏 Stack items vertically */
   margin: 0;
   padding: 0;
 }
 
+/* 🔗 Mobile navigation item */
 .mobile-nav__item {
   margin: 1rem;
   padding: 0;
 }
 
+/* 🎨 Style mobile menu links */
 .mobile-nav__item a {
   text-decoration: none;
   color: black;
-  font-size: 1.5rem;
-  padding: 0.5rem 2rem;
+  font-size: 1.5rem; /* 📏 Increase font size */
+  padding: 0.5rem 2rem; /* 🛏️ Add padding */
 }
 
+/* ✨ Highlight active links in mobile menu */
 .mobile-nav__item a:active,
 .mobile-nav__item a:hover,
 .mobile-nav__item a.active {
-  background: #00695c;
+  background: #00695c; /* 🎨 Teal background */
   color: white;
-  border-radius: 3px;
+  border-radius: 3px; /* 🔵 Rounded corners */
 }
 
+/* 📱 Toggle button for mobile menu */
 #side-menu-toggle {
-  border: 1px solid white;
+  border: 1px solid white; /* 🎨 White border */
   font: inherit;
-  padding: 0.5rem;
+  padding: 0.5rem; /* 🛏️ Add padding */
   display: block;
-  background: transparent;
+  background: transparent; /* 🎨 Transparent background */
   color: white;
-  cursor: pointer;
+  cursor: pointer; /* 🖱️ Show pointer cursor */
 }
 
+/* 🎯 Remove focus outline */
 #side-menu-toggle:focus {
   outline: none;
 }
 
+/* ✨ Change color on hover */
 #side-menu-toggle:active,
 #side-menu-toggle:hover {
-  color: #ffeb3b;
-  border-color: #ffeb3b;
+  color: #ffeb3b; /* 🎨 Yellow text */
+  border-color: #ffeb3b; /* 🎨 Yellow border */
 }
 
+/* 🚪 Backdrop for mobile menu */
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 5;
-  display: none;
+  height: 100vh; /* 📐 Full screen height */
+  background: rgba(0, 0, 0, 0.5); /* 🎨 Transparent black overlay */
+  z-index: 5; /* 📏 Behind the menu */
+  display: none; /* 🚫 Hidden by default */
 }
 
+/* 🎭 Grid layout */
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -141,15 +163,18 @@ form {
   align-items: stretch;
 }
 
+/* 🃏 Card styling */
 .card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 8px rgba(155, 25, 25, 0.26); /* 🎨 Soft shadow */
 }
 
+/* 📌 Padding for card elements */
 .card__header,
 .card__content {
   padding: 1rem;
 }
 
+/* 📏 Remove margin from text inside cards */
 .card__header h1,
 .card__content h1,
 .card__content h2,
@@ -157,60 +182,70 @@ form {
   margin: 0;
 }
 
+/* 📷 Image container for cards */
 .card__image {
   width: 100%;
 }
 
+/* 📷 Ensure images fill container */
 .card__image img {
   width: 100%;
 }
 
+/* 🎯 Center card actions */
 .card__actions {
   padding: 1rem;
   text-align: center;
 }
 
+/* 🛒 Button styling for actions */
 .card__actions button,
 .card__actions a {
   margin: 0 0.25rem;
 }
 
+/* 🎨 Button styling */
 .btn {
   display: inline-block;
   padding: 0.25rem 1rem;
   text-decoration: none;
   font: inherit;
   border: 1px solid #052580;
-  color: #00695c;
+  color: #000000;
   background: white;
   border-radius: 3px;
   cursor: pointer;
 }
 
+/* ✨ Change button appearance on hover */
 .btn:hover,
 .btn:active {
   background-color: #00695c;
   color: white;
 }
 
+/* 📱 Responsive design for tablets & larger screens */
 @media (min-width: 768px) {
   .main-header__nav {
-    display: flex;
+    display: flex; /* 📌 Show navigation */
   }
 
   #side-menu-toggle {
-    display: none;
+    display: none; /* 🚫 Hide toggle button */
   }
 }
 
+/* 🎯 Centered text */
 .centered {
   text-align: center;
 }
 
+/* 📷 Image styling */
 .image {
-  height: 20rem;
+  height: 20rem; /* 📏 Fixed image height */
 }
 
+/* 📷 Ensure images fill container */
 .image img {
   height: 100%;
 }

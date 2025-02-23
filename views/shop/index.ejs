@@ -1,38 +1,34 @@
-<%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/product.css">
-    </head>
+<%- include('../includes/head.ejs') %>  <!-- 🏗️ Include common head section -->
+<link rel="stylesheet" href="/css/product.css">  <!-- 🎨 Apply product styles -->
+</head>
 
-    <body>
-        <%- include('../includes/navigation.ejs') %>
+<body>
+    <%- include('../includes/navigation.ejs') %>  <!-- 🏗️ Include navigation bar -->
 
-            <main>
-                <% if (prods.length> 0) { %>
-                    <div class="grid">
-                        <% for (let product of prods) { %>
-                            <article class="card product-item">
-                                <header class="card__header">
-                                    <h1 class="product__title">
-                                        <%= product.title %>
-                                    </h1>
-                                </header>
-                                <div class="card__image">
-                                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
-                                </div>
-                                <div class="card__content">
-                                    <h2 class="product__price">₹<%= product.price %>
-                                    </h2>
-                                    <p class="product__description">
-                                        <%= product.description %>
-                                    </p>
-                                </div>
-                                <div class="card__actions">
-                                    <%- include('../includes/add-to-cart.ejs', {product: product}) %>
-                                </div>
-                            </article>
-                            <% } %>
-                    </div>
-                    <% } else { %>
-                        <h1>No Products Found!</h1>
-                        <% } %>
-            </main>
-            <%- include('../includes/end.ejs') %>
+    <main>
+        <% if (prods.length > 0) { %>  <!-- 🔍 Check if products are available -->
+            <div class="grid">  <!-- 🏗️ Display products in a grid layout -->
+                <% for (let product of prods) { %>  <!-- 🔄 Loop through products -->
+                    <article class="card product-item">  <!-- 🃏 Product card -->
+                        <header class="card__header">
+                            <h1 class="product__title"><%= product.title %></h1>  <!-- 🏷️ Product title -->
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= product.imageUrl %>" alt="<%= product.title %>">  <!-- 🖼️ Product image -->
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">₹<%= product.price %></h2>  <!-- 💰 Product price -->
+                            <p class="product__description"><%= product.description %></p>  <!-- 📝 Product description -->
+                        </div>
+                        <div class="card__actions">
+                            <%- include('../includes/add-to-cart.ejs', {product: product}) %>  <!-- 🛒 Add to cart button -->
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Products Found!</h1>  <!-- ❌ Message when no products exist -->
+        <% } %>
+    </main>
+
+    <%- include('../includes/end.ejs') %>  <!-- 🏗️ Include common footer -->

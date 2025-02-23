@@ -1,23 +1,25 @@
-<%- include('../includes/head.ejs') %>
-    </head>
+<%- include('../includes/head.ejs') %>  <!-- 🏗️ Include common head section -->
+</head>
 
-    <body>
-        <%- include('../includes/navigation.ejs') %>
-        <main>
-            <% if (products.length > 0) { %>
-                <ul>
-                    <% products.forEach(p => { %>
-                        <li>
-                            <p><%= p.productData.title %> (<%= p.qty %>)</p>
-                            <form action="/cart-delete-item" method="POST">
-                                <input type="hidden" value="<%= p.productData.id %>" name="productId">
-                                <button class="btn" type="submit">Delete</button>
-                            </form>
-                        </li>
-                    <% }) %>
-                </ul>
-            <% } else { %>
-                <h1>No Products in Cart!</h1>
-            <% } %>
-        </main>
-        <%- include('../includes/end.ejs') %>
+<body>
+    <%- include('../includes/navigation.ejs') %>  <!-- 🏗️ Include navigation bar -->
+
+    <main>
+        <% if (products.length > 0) { %>  <!-- 🔍 Check if the cart has products -->
+            <ul>
+                <% products.forEach(p => { %>  <!-- 🔄 Loop through cart items -->
+                    <li>
+                        <p><%= p.productData.title %> (<%= p.qty %>)</p>  <!-- 🏷️ Display product title and quantity -->
+                        <form action="/cart-delete-item" method="POST">  <!-- ❌ Delete product from cart -->
+                            <input type="hidden" value="<%= p.productData.id %>" name="productId">  <!-- 🆔 Hidden product ID -->
+                            <button class="btn" type="submit">Delete</button>  <!-- ❌ Delete button -->
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <h1>No Products in Cart!</h1>  <!-- ❌ Message when cart is empty -->
+        <% } %>
+    </main>
+
+    <%- include('../includes/end.ejs') %>  <!-- 🏗️ Include common footer -->

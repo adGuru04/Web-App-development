@@ -1,41 +1,40 @@
-<%- include('../includes/head.ejs') %>
-<link rel="stylesheet" href="/css/product.css">
+<%- include('../includes/head.ejs') %>  <!-- 🏗️ Include common head section -->
+<link rel="stylesheet" href="/css/product.css">  <!-- 🎨 Apply product styles -->
 </head>
 
 <body>
-   <%- include('../includes/navigation.ejs') %>
-
+   <%- include('../includes/navigation.ejs') %>  <!-- 🏗️ Include navigation bar -->
 
     <main>
-        <h1>Deleted Products</h1>
-        <% if (product.length > 0) { %>
-            <article class="grid">
-                <% product.forEach(product => { %>
-                    <article class="card product-item">
+        <h1>Deleted Products</h1>  <!-- 🗑️ Page title for deleted products -->
+
+        <% if (product.length > 0) { %>  <!-- 🔍 Check if there are deleted products -->
+            <article class="grid">  <!-- 🏗️ Display products in a grid layout -->
+                <% product.forEach(product => { %>  <!-- 🔄 Loop through deleted products -->
+                    <article class="card product-item">  <!-- 🃏 Product card -->
                         <header class="card__header">
-                            <h1 class="product__title"><%= product.title %></h1>
+                            <h1 class="product__title"><%= product.title %></h1>  <!-- 🏷️ Product title -->
                         </header>
-                    <div class="card__image">
-                        <img src="<%= product.imageUrl %>"
-                            alt="<%= product.title %>">
-                    </div>
+                        <div class="card__image">
+                            <img src="<%= product.imageUrl %>"
+                                alt="<%= product.title %>">  <!-- 🖼️ Product image -->
+                        </div>
                         <div class="card__content">
-                            <h2 class="product__price">₹<%= product.price %></h2>
-                            <p class="product__description"><%= product.description %></p>
+                            <h2 class="product__price">₹<%= product.price %></h2>  <!-- 💰 Product price -->
+                            <p class="product__description"><%= product.description %></p>  <!-- 📝 Product description -->
                         </div>
                         <div class="card__actions">
-                            <form action="/admin/restore-product" method="POST">
-                                <input type="hidden" value="<%= product.id %>" name="productId">
-                                <button class="btn" type="submit">Restore</button>
+                            <form action="/admin/restore-product" method="POST">  <!-- 🔄 Restore product form -->
+                                <input type="hidden" value="<%= product.id %>" name="productId">  <!-- 🆔 Hidden product ID -->
+                                <button class="btn" type="submit">Restore</button>  <!-- 🔄 Restore button -->
                             </form>
                         </div>
                     </article>
-                    </li>
                 <% }); %>
-            </ul>
+            </article>
         <% } else { %>
-            <p>No deleted products found.</p>
+            <p>No deleted products found.</p>  <!-- ❌ Message when no deleted products exist -->
         <% } %>
     </main>
 
-<%- include('../includes/end.ejs') %>
+<%- include('../includes/end.ejs') %>  <!-- 🏗️ Include common footer -->
