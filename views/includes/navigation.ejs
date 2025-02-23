@@ -1,29 +1,26 @@
-<header class="main-header">
-    <nav class="main-header__nav">
-        <ul class="main-header__item-list">
+<header class="main-header">  <!-- 🏠 Main website header -->
+    <nav class="main-header__nav">  <!-- 🔗 Navigation menu -->
+        <ul class="main-header__item-list">  <!-- 📜 Navigation links list -->
             <li class="main-header__item">
-                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>  <!-- 🏪 Shop Page -->
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
+                <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>  <!-- 📋 All Products -->
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>  <!-- 🛒 Shopping Cart -->
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>  <!-- 📦 Orders Page -->
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
-                </a>
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>  <!-- ➕ Add a Product -->
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Product
-                </a>
+                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Product</a>  <!-- 🛠️ Admin Products -->
             </li>
             <li class="main-header__item">
-                <a href="/admin/deleted-products">Deleted Products
-                </a>
+                <a href="/admin/deleted-products">Deleted Products</a>  <!-- 🗑️ View Deleted Products -->
             </li>
         </ul>
     </nav>

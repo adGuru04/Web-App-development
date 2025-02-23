@@ -1,26 +1,40 @@
-const path = require('path');
+const path = require('path'); // 📂 Import path module
+const express = require('express'); // 🚀 Import Express framework
+const shopController = require('../controllers/shop'); // 📦 Import shop controller
 
-const express = require('express');
+const router = express.Router(); // 🛤️ Create an Express router
 
-const shopController = require('../controllers/shop');
-
-const router = express.Router();
-
+// 🏪 Route to render the Shop homepage (GET request)
+// 📌 URL: /
 router.get('/', shopController.getIndex);
 
-router.get('/products',shopController.getProducts);
+// 📋 Route to fetch and display all products (GET request)
+// 📌 URL: /products
+router.get('/products', shopController.getProducts);
 
+// 🔍 Route to fetch details of a specific product (GET request)
+// 📌 URL: /products/:productId
+// 🏷️ The colon (:) indicates a dynamic route parameter
 router.get('/products/:productId', shopController.getProduct);
-// colon here is a signal that reflect that this middleware doesnt look for a route.
 
-router.get('/cart',shopController.getCart);
+// 🛒 Route to fetch and display the shopping cart (GET request)
+// 📌 URL: /cart
+router.get('/cart', shopController.getCart);
 
-router.post('/cart',shopController.postCart);
+// ➕ Route to add a product to the cart (POST request)
+// 📌 URL: /cart
+router.post('/cart', shopController.postCart);
 
-router.post('/cart-delete-item',shopController.postCartDeleteProduct);
+// ❌ Route to delete a product from the cart (POST request)
+// 📌 URL: /cart-delete-item
+router.post('/cart-delete-item', shopController.postCartDeleteProduct);
 
-router.get('/orders',shopController.getOrders);
+// 📦 Route to fetch and display orders (GET request)
+// 📌 URL: /orders
+router.get('/orders', shopController.getOrders);
 
-router.get('/checkout',shopController.getCheckout);
+// 💳 Route to render the checkout page (GET request)
+// 📌 URL: /checkout
+router.get('/checkout', shopController.getCheckout);
 
-module.exports = router;
+module.exports = router; // 📤 Export the router

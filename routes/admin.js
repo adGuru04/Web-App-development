@@ -1,30 +1,39 @@
-const path = require('path');
+const path = require('path'); // 📂 Import path module
+const express = require('express'); // 🚀 Import Express framework
+const adminController = require('../controllers/admin'); // 📦 Import admin controller
 
-const express = require('express');
+const router = express.Router(); // 🛤️ Create an Express router
 
-const adminController = require('../controllers/admin');
-
-const router = express.Router();
-
-// /admin/add-product => GET
+// 🏗️ Route to render "Add Product" page (GET request)
+// 📌 URL: /admin/add-product
 router.get('/add-product', adminController.getAddProduct);
 
-// /admin/products => GET
-router.get('/products',adminController.getProducts);
+// 📋 Route to fetch and display all products (GET request)
+// 📌 URL: /admin/products
+router.get('/products', adminController.getProducts);
 
-
-// /admin/add-product => POST
+// 📝 Route to handle form submission for adding a new product (POST request)
+// 📌 URL: /admin/add-product
 router.post('/add-product', adminController.postAddProduct);
 
-// /admin/edit-product => Get
-router.get('/edit-product/:productId',adminController.getEditProduct);
+// ✏️ Route to render "Edit Product" page (GET request)
+// 📌 URL: /admin/edit-product/:productId
+router.get('/edit-product/:productId', adminController.getEditProduct);
 
+// 🔄 Route to handle form submission for editing a product (POST request)
+// 📌 URL: /admin/edit-product
+router.post('/edit-product', adminController.postEditProduct);
 
-router.post("/edit-product",adminController.postEditProduct);
-
+// ❌ Route to handle deleting a product (POST request)
+// 📌 URL: /admin/delete-product
 router.post("/delete-product", adminController.postDeleteProduct);
 
-router.get('/deleted-products', adminController.getDeletedProducts);  // ✅ Show Deleted Products
-router.post('/restore-product', adminController.postRestoreProduct);  // ✅ Restore Product
+// 🗑️ Route to fetch and display deleted products (GET request)
+// 📌 URL: /admin/deleted-products
+router.get('/deleted-products', adminController.getDeletedProducts);  
 
-module.exports = router;
+// 🔄 Route to restore a deleted product (POST request)
+// 📌 URL: /admin/restore-product
+router.post('/restore-product', adminController.postRestoreProduct);  
+
+module.exports = router; // 📤 Export the router
